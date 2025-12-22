@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://1doe6uowdv73"]
+
+[ext_resource type="Script" uid="uid://bgk1v86umjfkb" path="res://scripts/quest4/HarvestItem.gd" id="1_0piws"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xlaw"]
+size = Vector2(347, 403)
+
+[node name="HarvestItem" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_0piws")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+
+[node name="CollisionShape" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_2xlaw")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

@@ -1,0 +1,293 @@
+[gd_scene load_steps=4 format=3 uid="uid://fid7486pp4g8"]
+
+[ext_resource type="Script" uid="uid://c03slh01nm6ye" path="res://scripts/quest1/Quest1_Water_MapTracing.gd" id="1_47jkx"]
+[ext_resource type="Texture2D" uid="uid://0thpyrka6wre" path="res://assets/sprites/Quest1_Water_Map.png" id="1_p4lq8"]
+[ext_resource type="Texture2D" uid="uid://b7hmrnswe5oe2" path="res://assets/sprites/Quest1_Water_Mask.png" id="2_e35r6"]
+
+[node name="Quest1WaterMapTracing" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_47jkx")
+allowed_mask = ExtResource("2_e35r6")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 2313.0
+offset_bottom = 1527.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
+texture = ExtResource("1_p4lq8")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DrawLayer" type="Node2D" parent="."]
+
+[node name="PlayerLine" type="Line2D" parent="DrawLayer"]
+z_index = 10
+points = PackedVector2Array(214, 250)
+width = 12.0
+default_color = Color(0.5137255, 1, 1, 1)
+
+[node name="CompletedLines" type="Node2D" parent="DrawLayer"]
+
+[node name="StartPoints" type="Node2D" parent="."]
+
+[node name="StartDot2" type="ColorRect" parent="StartPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 136.0
+offset_top = 214.0
+offset_right = 286.0
+offset_bottom = 295.0
+color = Color(0, 1, 1, 0)
+
+[node name="StartDot" type="ColorRect" parent="StartPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 183.0
+offset_top = 485.0
+offset_right = 386.0
+offset_bottom = 562.0
+color = Color(0, 1, 1, 0)
+
+[node name="StartDot3" type="ColorRect" parent="StartPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 749.0
+offset_top = 228.0
+offset_right = 891.0
+offset_bottom = 306.0
+color = Color(0, 1, 1, 0)
+
+[node name="StartDot4" type="ColorRect" parent="StartPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 684.0
+offset_top = 492.0
+offset_right = 864.0
+offset_bottom = 561.0
+color = Color(0, 1, 1, 0)
+
+[node name="EndPoints" type="Node2D" parent="."]
+
+[node name="EndDot" type="ColorRect" parent="EndPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 264.0
+offset_top = 79.0
+offset_right = 382.0
+offset_bottom = 194.0
+color = Color(1, 0.53313285, 0, 0)
+
+[node name="EndDot2" type="ColorRect" parent="EndPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 659.0
+offset_top = 83.0
+offset_right = 784.0
+offset_bottom = 244.0
+color = Color(1, 0.53313285, 0, 0)
+
+[node name="EndDot3" type="ColorRect" parent="EndPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 682.0
+offset_top = 350.0
+offset_right = 828.0
+offset_bottom = 454.0
+color = Color(1, 0.53313285, 0, 0)
+
+[node name="EndDot4" type="ColorRect" parent="EndPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 445.0
+offset_top = 413.0
+offset_right = 596.0
+offset_bottom = 497.0
+color = Color(1, 0.53313285, 0, 0)
+
+[node name="EndDot5" type="ColorRect" parent="EndPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 228.0
+offset_top = 324.0
+offset_right = 358.0
+offset_bottom = 427.0
+color = Color(1, 0.53313285, 0, 0)
+
+[node name="EndDot6" type="ColorRect" parent="EndPoints"]
+custom_minimum_size = Vector2(24, 24)
+offset_left = 207.0
+offset_top = 312.0
+offset_right = 398.0
+offset_bottom = 427.0
+color = Color(1, 0.53313285, 0, 0)
+
+[node name="UI" type="Control" parent="."]
+anchors_preset = 0
+offset_top = 577.0
+offset_right = 1126.0
+offset_bottom = 746.0
+mouse_filter = 2
+
+[node name="Overlay" type="Control" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -577.0
+offset_bottom = -577.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Card" type="Panel" parent="UI/Overlay"]
+custom_minimum_size = Vector2(700, 300)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -354.0
+offset_top = 117.5
+offset_right = 346.0
+offset_bottom = 417.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ResultLabel" type="Label" parent="UI/Overlay/Card"]
+layout_mode = 0
+offset_right = 690.0
+offset_bottom = 103.0
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="RedoButton" type="Button" parent="UI/Overlay/Card"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.97200006
+anchor_bottom = 0.39000002
+offset_left = 321.0
+offset_top = 260.0
+offset_right = -311.40002
+offset_bottom = 174.0
+theme_override_font_sizes/font_size = 24
+text = "Redo
+"
+
+[node name="TriesLabel" type="Label" parent="UI"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 25.825
+anchor_top = 1.0
+anchor_right = 27.6
+anchor_bottom = 1.462
+offset_top = -6.0
+offset_bottom = 24.52
+theme_override_font_sizes/font_size = 22
+text = "Tries: 3/3
+"
+
+[node name="MessageBox" type="Panel" parent="UI"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = -138.0
+offset_right = 11.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+
+[node name="Margin" type="MarginContainer" parent="UI/MessageBox"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 16
+
+[node name="MessageLabel" type="Label" parent="UI/MessageBox/Margin"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Trace a canal route from any Port (buildings with the anchors), to any destination (landmarks).
+Stay on the canal path.
+"
+
+[node name="PortLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 224.0
+offset_top = -57.0
+offset_right = 273.0
+offset_bottom = -23.0
+theme_override_font_sizes/font_size = 24
+text = "Port"
+
+[node name="LandmarkLabel" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 211.0
+offset_top = -201.0
+offset_right = 329.0
+offset_bottom = -167.0
+theme_override_font_sizes/font_size = 24
+text = "Landmark"
+
+[node name="LandmarkLabel2" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 269.0
+offset_top = -452.0
+offset_right = 387.0
+offset_bottom = -418.0
+theme_override_font_sizes/font_size = 24
+text = "Landmark"
+
+[node name="LandmarkLabel3" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 647.0
+offset_top = -423.0
+offset_right = 765.0
+offset_bottom = -389.0
+theme_override_font_sizes/font_size = 24
+text = "Landmark"
+
+[node name="LandmarkLabel4" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 441.0
+offset_top = -155.0
+offset_right = 559.0
+offset_bottom = -121.0
+theme_override_font_sizes/font_size = 24
+text = "Landmark"
+
+[node name="LandmarkLabel5" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 693.0
+offset_top = -176.0
+offset_right = 811.0
+offset_bottom = -142.0
+theme_override_font_sizes/font_size = 24
+text = "Landmark"
+
+[node name="PortLabel2" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 150.0
+offset_top = -330.0
+offset_right = 199.0
+offset_bottom = -296.0
+theme_override_font_sizes/font_size = 24
+text = "Port"
+
+[node name="PortLabel3" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 734.0
+offset_top = -38.0
+offset_right = 783.0
+offset_bottom = -4.0
+theme_override_font_sizes/font_size = 24
+text = "Port"
+
+[node name="PortLabel4" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 796.0
+offset_top = -322.0
+offset_right = 845.0
+offset_bottom = -288.0
+theme_override_font_sizes/font_size = 24
+text = "Port"

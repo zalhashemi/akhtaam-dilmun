@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://oy4kds11hwty"]
+
+[ext_resource type="Script" uid="uid://x2nu838p8jru" path="res://scripts/quest3/Pearl.gd" id="1_357s0"]
+[ext_resource type="Texture2D" uid="uid://b66b05f6kvn7b" path="res://assets/sprites/pearl.png" id="1_ula8h"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_357s0"]
+radius = 18.027756
+
+[node name="Pearl" type="Area2D"]
+script = ExtResource("1_357s0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.089, 0.089)
+texture = ExtResource("1_ula8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_357s0")
