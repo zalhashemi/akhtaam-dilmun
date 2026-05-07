@@ -8,21 +8,28 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="AkhtaamDilmun"
-run/main_scene="uid://drgidlcy6xwas"
-config/features=PackedStringArray("4.5", "Forward Plus")
+run/main_scene="uid://pt3rdrqwpum5"
+config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/Global.gd"
+SaveManager="*uid://68kk18d1t5kd"
+MusicManager="*res://scripts/MusicManager.gd"
 
 [display]
 
 window/size/viewport_height=768
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [input]
 
@@ -70,6 +77,10 @@ move_left={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194319,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://translations/translations.ar.translation", "res://translations/translations.en.translation")
 
 [rendering]
 

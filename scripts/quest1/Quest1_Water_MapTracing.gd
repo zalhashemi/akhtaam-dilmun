@@ -72,6 +72,9 @@ func _ready() -> void:
 	message_label.text = tr("Q1_INSTRUCTIONS")
 	_clear_line()
 	_apply_arabic_font_to_ui()
+	if Global.current_locale == "ar":
+		message_label.add_theme_font_size_override("font_size", 20)
+		message_label.add_theme_constant_override("line_spacing", -6)
 	_translate_map_labels()
 	var _input_overlay: Node = load("res://scripts/InputHintOverlay.gd").new()
 	_input_overlay.setup("mouse")
@@ -86,26 +89,27 @@ func _start_onboarding() -> void:
 		{
 			"en": "The blue dots are Ports \u2014 start or end your path here.",
 			"ar": "\u0627\u0644\u0646\u0642\u0627\u0637 \u0627\u0644\u0632\u0631\u0642\u0627\u0621 \u0647\u064a \u0627\u0644\u0645\u0648\u0627\u0646\u0626 \u2014 \u0627\u0628\u062f\u0623 \u0645\u0633\u0627\u0631\u0643 \u0623\u0648 \u0623\u0646\u0647\u0650\u0647 \u0645\u0646\u0647\u0627.",
-			"target": Vector2(0.16, 0.34),
-			"align": "bottom"
+			"target": Vector2(0.17, 0.35),
+			"align": "right"
 		},
 		{
 			"en": "The golden dots are Landmarks \u2014 connect every single one!",
 			"ar": "\u0627\u0644\u0646\u0642\u0627\u0637 \u0627\u0644\u0630\u0647\u0628\u064a\u0629 \u0647\u064a \u0627\u0644\u0645\u0639\u0627\u0644\u0645 \u2014 \u064a\u062c\u0628 \u0631\u0628\u0637 \u0643\u0644 \u0648\u0627\u062d\u062f\u0629!",
-			"target": Vector2(0.55, 0.21),
+			"target": Vector2(0.28, 0.18),
 			"align": "bottom"
 		},
 		{
 			"en": "Click and drag between a Port and a Landmark to draw a path. Stay inside the lines!",
 			"ar": "\u0627\u0636\u063a\u0637 \u0648\u0627\u0633\u062d\u0628 \u0628\u064a\u0646 \u0645\u064a\u0646\u0627\u0621 \u0648\u0645\u0639\u0644\u0645 \u0644\u0631\u0633\u0645 \u0645\u0633\u0627\u0631. \u0627\u0628\u0642\u064e \u062f\u0627\u062e\u0644 \u0627\u0644\u062e\u0637\u0648\u0637!",
-			"target": Vector2(0.46, 0.54),
+			"target": Vector2(0.39, 0.45),
 			"align": "top"
 		},
 		{
-			"en": "Connect every Landmark to a Port to win. You have 3 tries \u2014 good luck!",
-			"ar": "\u0627\u0631\u0628\u0637 \u0643\u0644 \u0645\u0639\u0644\u0645 \u0628\u0645\u064a\u0646\u0627\u0621 \u0644\u0644\u0641\u0648\u0632. \u0644\u062f\u064a\u0643 3 \u0645\u062d\u0627\u0648\u0644\u0627\u062a \u2014 \u062d\u0638\u0627\u064b \u0645\u0648\u0641\u0642\u0627\u064b!",
-			"target": Vector2(0.18, 0.06),
-			"align": "bottom"
+			"en": "Your tries are shown here \u2014 you have 3. Each mistake costs one try!",
+			"ar": "\u0639\u062f\u062f \u0645\u062d\u0627\u0648\u0644\u0627\u062a\u0643 \u064a\u0638\u0647\u0631 \u0647\u0646\u0627 \u2014 \u0644\u062f\u064a\u0643 3. \u0643\u0644 \u062e\u0637\u0623 \u064a\u0643\u0644\u0641\u0643 \u0645\u062d\u0627\u0648\u0644\u0629!",
+			"target": Vector2(0.5, 0.94),
+			"target_ar": Vector2(0.5, 0.94),
+			"align": "top"
 		},
 	])
 	add_child(tut)
@@ -136,7 +140,6 @@ func _make_dot(center: Vector2, radius: float, color: Color) -> Node2D:
 	var container := Node2D.new()
 	container.z_index = 5
 
-	# Dark outline circle
 	var outline := Polygon2D.new()
 	outline.color = Color(0.0, 0.0, 0.0, 0.75)
 	var outline_pts := PackedVector2Array()
@@ -146,7 +149,6 @@ func _make_dot(center: Vector2, radius: float, color: Color) -> Node2D:
 	outline.polygon = outline_pts
 	container.add_child(outline)
 
-	# Filled colour circle
 	var fill := Polygon2D.new()
 	fill.color = color
 	var fill_pts := PackedVector2Array()
@@ -160,7 +162,6 @@ func _make_dot(center: Vector2, radius: float, color: Color) -> Node2D:
 
 
 func _input(event: InputEvent) -> void:
-	# Block drawing while result panel is visible
 	if result_panel.panel.visible:
 		return
 
