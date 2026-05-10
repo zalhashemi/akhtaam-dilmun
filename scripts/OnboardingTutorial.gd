@@ -17,6 +17,7 @@ extends CanvasLayer
 ## "target" is a Vector2 in NORMALISED viewport space (0..1, 0..1).
 
 signal tutorial_done
+signal step_changed(index: int)
 
 var _steps   : Array  = []
 var _current : int    = 0
@@ -27,18 +28,18 @@ var _panel       : PanelContainer = null
 var _text_lbl    : Label          = null
 var _counter_lbl : Label          = null
 var _btn         : Button         = null
+var _footer      : HBoxContainer  = null
 var _arrow       : Polygon2D      = null
 var _dot_outer   : Polygon2D      = null
 var _dot_inner   : Polygon2D      = null
+var _overlay_img  : Sprite2D       = null
+var step_preview  : Control        = null   
 
 
 # ── Public API ────────────────────────────────────────────────────────────────
 
 func setup(steps: Array) -> void:
 	_steps = steps
-
-
-# ── Lifecycle ─────────────────────────────────────────────────────────────────
 
 func _ready() -> void:
 	layer        = 10
@@ -48,12 +49,9 @@ func _ready() -> void:
 	_show_step(0)
 
 
-# ── Build UI (once) ───────────────────────────────────────────────────────────
 
 func _build() -> void:
 	var vs: Vector2 = get_viewport().get_visible_rect().size
-
-	# Dark overlay — blocks all game input while tutorial is active
 	_overlay = ColorRect.new()
 	_overlay.color         = Color(0.0, 0.0, 0.0, 0.58)
 	_overlay.anchor_right  = 1.0
@@ -63,28 +61,38 @@ func _build() -> void:
 	_overlay.process_mode  = Node.PROCESS_MODE_ALWAYS
 	add_child(_overlay)
 
-	# Arrow (drawn per-step)
 	_arrow              = Polygon2D.new()
 	_arrow.color        = Color(1.0, 0.85, 0.25, 0.90)
 	_arrow.z_index      = 3
 	_arrow.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(_arrow)
 
-	# Target dot — outer ring
 	_dot_outer              = Polygon2D.new()
 	_dot_outer.color        = Color(1.0, 0.85, 0.25, 0.35)
 	_dot_outer.z_index      = 4
 	_dot_outer.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(_dot_outer)
 
-	# Target dot — filled centre
 	_dot_inner              = Polygon2D.new()
 	_dot_inner.color        = Color(1.0, 0.85, 0.25, 0.90)
 	_dot_inner.z_index      = 5
 	_dot_inner.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(_dot_inner)
 
-	# Panel container
+	_overlay_img              = Sprite2D.new()
+	_overlay_img.z_index      = 7
+	_overlay_img.process_mode = Node.PROCESS_MODE_ALWAYS
+	_overlay_img.visible      = false
+	add_child(_overlay_img)
+
+	step_preview                     = Control.new()
+	step_preview.anchor_right        = 1.0
+	step_preview.anchor_bottom       = 1.0
+	step_preview.layout_mode         = 1
+	step_preview.mouse_filter        = Control.MOUSE_FILTER_IGNORE
+	step_preview.process_mode        = Node.PROCESS_MODE_ALWAYS
+	add_child(step_preview)
+
 	_panel                     = PanelContainer.new()
 	_panel.custom_minimum_size = Vector2(vs.x * 0.44, 0.0)
 	_panel.z_index             = 6
@@ -106,7 +114,8 @@ func _build() -> void:
 	margin.add_theme_constant_override("margin_right",  28)
 	margin.add_theme_constant_override("margin_top",    22)
 	margin.add_theme_constant_override("margin_bottom", 22)
-	margin.process_mode = Node.PROCESS_MODE_ALWAYS
+	margin.process_mode     = Node.PROCESS_MODE_ALWAYS
+	margin.layout_direction = Control.LAYOUT_DIRECTION_LTR   
 	_panel.add_child(margin)
 
 	var vbox := VBoxContainer.new()
@@ -115,40 +124,52 @@ func _build() -> void:
 	vbox.process_mode          = Node.PROCESS_MODE_ALWAYS
 	margin.add_child(vbox)
 
-	# Step text
+	var is_ar_build := Global.current_locale == "ar"
 	_text_lbl = Label.new()
-	_text_lbl.autowrap_mode         = TextServer.AUTOWRAP_WORD_SMART
-	_text_lbl.size_flags_horizontal  = Control.SIZE_EXPAND_FILL
+	_text_lbl.autowrap_mode          = TextServer.AUTOWRAP_WORD_SMART
+	_text_lbl.size_flags_horizontal   = Control.SIZE_EXPAND_FILL
 	_text_lbl.add_theme_font_size_override("font_size", 20)
 	_text_lbl.add_theme_color_override("font_color", Color(1.0, 0.95, 0.82, 1.0))
 	_text_lbl.add_theme_constant_override("outline_size", 1)
 	_text_lbl.add_theme_color_override("font_outline_color", Color.BLACK)
-	_text_lbl.process_mode = Node.PROCESS_MODE_ALWAYS
+	_text_lbl.process_mode            = Node.PROCESS_MODE_ALWAYS
+	
+	if is_ar_build:
+		_text_lbl.text_direction       = Control.TEXT_DIRECTION_RTL
+		_text_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		_text_lbl.layout_direction     = Control.LAYOUT_DIRECTION_LTR
+		if Global.arabic_font != null:
+			_text_lbl.add_theme_font_override("font", Global.arabic_font)
+			_text_lbl.add_theme_font_size_override("font_size", 20 + Global.ARABIC_SIZE_BONUS)
+	else:
+		_text_lbl.text_direction       = Control.TEXT_DIRECTION_LTR
+		_text_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_text_lbl.layout_direction     = Control.LAYOUT_DIRECTION_LTR
 	vbox.add_child(_text_lbl)
 
-	# Footer row: counter (left) + button (right)
-	var footer := HBoxContainer.new()
-	footer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	footer.process_mode          = Node.PROCESS_MODE_ALWAYS
-	vbox.add_child(footer)
+	_footer = HBoxContainer.new()
+	_footer.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	_footer.process_mode          = Node.PROCESS_MODE_ALWAYS
+	_footer.layout_direction      = Control.LAYOUT_DIRECTION_RTL if is_ar_build else Control.LAYOUT_DIRECTION_LTR
+	vbox.add_child(_footer)
 
 	_counter_lbl = Label.new()
 	_counter_lbl.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	_counter_lbl.vertical_alignment    = VERTICAL_ALIGNMENT_CENTER
 	_counter_lbl.add_theme_font_size_override("font_size", 14)
 	_counter_lbl.add_theme_color_override("font_color", Color(0.62, 0.58, 0.48, 1.0))
-	_counter_lbl.process_mode = Node.PROCESS_MODE_ALWAYS
-	footer.add_child(_counter_lbl)
+	_counter_lbl.process_mode    = Node.PROCESS_MODE_ALWAYS
+	_counter_lbl.layout_direction = Control.LAYOUT_DIRECTION_LTR  # numbers stay LTR
+	_footer.add_child(_counter_lbl)
 
 	_btn = Button.new()
 	_btn.custom_minimum_size = Vector2(150, 46)
 	_btn.add_theme_font_size_override("font_size", 20)
+	_btn.layout_direction = Control.LAYOUT_DIRECTION_LTR  # keep chevron orientation
 	_btn.pressed.connect(_on_next)
 	_btn.process_mode = Node.PROCESS_MODE_ALWAYS
-	footer.add_child(_btn)
+	_footer.add_child(_btn)
 
-
-# ── Per-step display ──────────────────────────────────────────────────────────
 
 func _show_step(index: int) -> void:
 	if index >= _steps.size():
@@ -162,25 +183,25 @@ func _show_step(index: int) -> void:
 	var is_ar   : bool       = Global.current_locale == "ar"
 	var vs      : Vector2    = get_viewport().get_visible_rect().size
 	var is_last : bool       = (index == _steps.size() - 1)
-
-	# ── Text ──────────────────────────────────────────────────────────────────
+	
 	_text_lbl.text = step.get("ar", "") if is_ar else step.get("en", "")
 
 	if is_ar:
-		_text_lbl.text_direction      = Control.TEXT_DIRECTION_RTL
+		_text_lbl.text_direction       = Control.TEXT_DIRECTION_RTL
 		_text_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		_text_lbl.layout_direction     = Control.LAYOUT_DIRECTION_LTR
 		_text_lbl.add_theme_constant_override("line_spacing", -10)
 		if Global.arabic_font != null:
 			_text_lbl.add_theme_font_override("font", Global.arabic_font)
 			_text_lbl.add_theme_font_size_override("font_size", 20 + Global.ARABIC_SIZE_BONUS)
 	else:
-		_text_lbl.text_direction      = Control.TEXT_DIRECTION_LTR
+		_text_lbl.text_direction       = Control.TEXT_DIRECTION_LTR
 		_text_lbl.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_text_lbl.layout_direction     = Control.LAYOUT_DIRECTION_LTR
 		_text_lbl.remove_theme_constant_override("line_spacing")
 		_text_lbl.remove_theme_font_override("font")
 		_text_lbl.add_theme_font_size_override("font_size", 20)
 
-	# ── Counter ────────────────────────────────────────────────────────────────
 	if is_ar:
 		var ts := TextServerManager.get_primary_interface()
 		_counter_lbl.text = "%s / %s" % [
@@ -197,7 +218,6 @@ func _show_step(index: int) -> void:
 		_counter_lbl.remove_theme_font_override("font")
 		_counter_lbl.add_theme_font_size_override("font_size", 14)
 
-	# ── Button ─────────────────────────────────────────────────────────────────
 	if is_ar:
 		_btn.text = "ابدأ!" if is_last else "التالي  ›"
 		if Global.arabic_font != null:
@@ -208,15 +228,37 @@ func _show_step(index: int) -> void:
 		_btn.remove_theme_font_override("font")
 		_btn.add_theme_font_size_override("font_size", 20)
 
-	# ── Wait one frame so the panel can measure its final size ─────────────────
 	await get_tree().process_frame
 
-	# ── Layout positions ───────────────────────────────────────────────────────
-	var target_norm : Vector2 = step.get("target", Vector2(0.5, 0.5))
-	var target      : Vector2 = target_norm * vs
-	var align       : String  = step.get("align", "bottom")
+	var target_norm : Vector2
+	if is_ar and step.has("target_ar"):
+		target_norm = step.get("target_ar")
+	else:
+		target_norm = step.get("target", Vector2(0.5, 0.5))
+	var target : Vector2 = target_norm * vs
+	var align  : String
+	if is_ar and step.has("align_ar"):
+		align = step.get("align_ar")
+	else:
+		align  = step.get("align", "bottom")
 	var ps          : Vector2 = _panel.size
-	const GAP       := 62.0   # pixels between dot and panel edge
+	const GAP       := 62.0  
+
+	var overlay_path : String = step.get("overlay_image", "")
+	if overlay_path != "":
+		var tex : Texture2D   = load(overlay_path)
+		_overlay_img.texture  = tex
+		const TARGET_H        := 90.0
+		var th                := float(tex.get_height())
+		_overlay_img.scale    = Vector2(TARGET_H / th, TARGET_H / th) if th > 0.0 else Vector2(0.25, 0.25)
+		_overlay_img.position = target
+		_overlay_img.visible  = true
+		_dot_outer.visible    = false
+		_dot_inner.visible    = false
+	else:
+		_overlay_img.visible = false
+		_dot_outer.visible   = true
+		_dot_inner.visible   = true
 
 	var px := 0.0
 	var py := 0.0
@@ -240,7 +282,6 @@ func _show_step(index: int) -> void:
 
 	_panel.position = Vector2(px, py)
 
-	# ── Arrow (triangle from panel edge → target) ──────────────────────────────
 	var base : Vector2
 	match align:
 		"top":    base = Vector2(px + ps.x * 0.5, py + ps.y)
@@ -257,7 +298,6 @@ func _show_step(index: int) -> void:
 		base - perp * 9.0
 	])
 
-	# ── Target dot (outer ring + inner fill) ───────────────────────────────────
 	const OUTER_R := 20.0
 	const INNER_R := 10.0
 	var outer_pts := PackedVector2Array()
@@ -269,10 +309,8 @@ func _show_step(index: int) -> void:
 	_dot_outer.polygon = outer_pts
 	_dot_inner.polygon = inner_pts
 
+	step_changed.emit(index)
 	_busy = false
-
-
-# ── Interaction ───────────────────────────────────────────────────────────────
 
 func _on_next() -> void:
 	if _busy:

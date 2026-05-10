@@ -1,0 +1,146 @@
+[gd_scene format=3 uid="uid://cojsx44vxatuo"]
+
+[ext_resource type="Script" uid="uid://25iu355t5wbn" path="res://scripts/options_overlay.gd" id="1_jhfpn"]
+[ext_resource type="Texture2D" uid="uid://cdwx837bt4ydd" path="res://assets/startMenu/options.png" id="2_dudf8"]
+[ext_resource type="Texture2D" uid="uid://dysb16rkvmdbd" path="res://assets/startMenu/button.png" id="3_84xvk"]
+
+[node name="OptionsOverlay" type="CanvasLayer" unique_id=1156552052]
+process_mode = 3
+layer = 10
+script = ExtResource("1_jhfpn")
+
+[node name="OptionsButton" type="TextureButton" parent="." unique_id=1482045198]
+custom_minimum_size = Vector2(48, 48)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -80.0
+offset_top = 2.0
+offset_right = -32.0
+offset_bottom = 50.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_dudf8")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="OverlayPanel" type="Control" parent="." unique_id=429058173]
+custom_minimum_size = Vector2(600, 450)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelBackground" type="ColorRect" parent="OverlayPanel" unique_id=463615397]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23209421, 0.12315822, 0.050708726, 0.95000005)
+
+[node name="VBox" type="VBoxContainer" parent="OverlayPanel" unique_id=1043525112]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 14
+
+[node name="TitleLabel" type="Label" parent="OverlayPanel/VBox" unique_id=442425749]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.7254902, 0.5137255, 1)
+theme_override_font_sizes/font_size = 22
+text = "Options"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="TextureButton" parent="OverlayPanel/VBox" unique_id=2057411260]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+texture_normal = ExtResource("3_84xvk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ContinueLabel" type="Label" parent="OverlayPanel/VBox/ContinueButton" unique_id=1241097816]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OverworldButton" type="TextureButton" parent="OverlayPanel/VBox" unique_id=30687]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+texture_normal = ExtResource("3_84xvk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="OverworldLabel" type="Label" parent="OverlayPanel/VBox/OverworldButton" unique_id=697399735]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsButton" type="TextureButton" parent="OverlayPanel/VBox" unique_id=87633518]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+texture_normal = ExtResource("3_84xvk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="SettingsLabel" type="Label" parent="OverlayPanel/VBox/SettingsButton" unique_id=1438458442]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuButton" type="TextureButton" parent="OverlayPanel/VBox" unique_id=674164569]
+custom_minimum_size = Vector2(200, 70)
+layout_mode = 2
+texture_normal = ExtResource("3_84xvk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="MainMenuLabel" type="Label" parent="OverlayPanel/VBox/MainMenuButton" unique_id=1813655345]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1

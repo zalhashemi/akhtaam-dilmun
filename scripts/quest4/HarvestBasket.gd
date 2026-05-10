@@ -13,7 +13,6 @@ func add_correct_item() -> void:
 func can_accept(t: String) -> bool:
 	return t == accepts_type
 
-# Optional helper (only used if you want snapping). Safe + typed.
 func get_lip_global_y() -> float:
 	var rect: RectangleShape2D = col.shape as RectangleShape2D
 	if rect == null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=250 format=3 uid="uid://mysmpdebhble"]
+[gd_scene format=3 uid="uid://mysmpdebhble"]
 
 [ext_resource type="Texture2D" uid="uid://di5g5eyakrqcv" path="res://assets/sprites/bg_memory.png" id="1_jhfre"]
 [ext_resource type="Script" uid="uid://ch64xxg0aaqa5" path="res://scripts/quest6/Quest6_Memory.gd" id="1_tuwlu"]
@@ -10,8 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://bp4p612om1fqg" path="res://assets/sprites/seal_pearls.png" id="5_np07x"]
 [ext_resource type="Texture2D" uid="uid://en2vf7ohores" path="res://assets/sprites/seal_harvest.png" id="6_ghfqk"]
 [ext_resource type="Texture2D" uid="uid://bgwpjtphy2bny" path="res://assets/sprites/seal_unity.png" id="7_j5b5q"]
-[ext_resource type="Texture2D" uid="uid://fsiyvxfbggia" path="res://assets/sprites/seal_memory.png" id="8_ucrmr"]
 [ext_resource type="Script" uid="uid://yij3jkin3iqo" path="res://scripts/quest6/DialogBox.gd" id="11_h24e0"]
+[ext_resource type="PackedScene" uid="uid://cojsx44vxatuo" path="res://scenes/options_overlay.tscn" id="13_ghfqk"]
+[ext_resource type="PackedScene" uid="uid://b5fa6g6dcpc5y" path="res://scenes/quest_result_panel.tscn" id="13_j5b5q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_h24e0"]
 radius = 86.05231
@@ -1403,291 +1404,31 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h24e0"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(0, 0, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_np07x"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(275, 0, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ghfqk"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(550, 0, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_j5b5q"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(825, 0, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ucrmr"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1100, 0, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gee1l"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1375, 0, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fo2jj"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(0, 262, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2qy1v"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(275, 262, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_v08am"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(550, 262, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qeipd"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(825, 262, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8drqh"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1100, 262, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nckq3"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1375, 262, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5k6e6"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(0, 524, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xq8jn"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(275, 524, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_htxk7"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(550, 524, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_f1wja"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(825, 524, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8vthx"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1100, 524, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b372x"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1375, 524, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fxkdk"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(0, 786, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ijjrw"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(275, 786, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_61c2h"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(550, 786, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cyk8i"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(825, 786, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_uydkx"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1100, 786, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qm4n7"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1375, 786, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7yain"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(0, 1048, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8gwil"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(275, 1048, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shro1"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(550, 1048, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vh7w7"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(825, 1048, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d7yee"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1100, 1048, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3m1qs"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1375, 1048, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_af2r7"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(0, 1310, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hnavp"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(275, 1310, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_exggp"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(550, 1310, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eq50p"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(825, 1310, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_evntr"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1100, 1310, 275, 262)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_16cap"]
-atlas = ExtResource("8_ucrmr")
-region = Rect2(1375, 1310, 275, 262)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_xeyxw"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_h24e0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_np07x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ghfqk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_j5b5q")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ucrmr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gee1l")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fo2jj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2qy1v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v08am")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qeipd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8drqh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nckq3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5k6e6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xq8jn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_htxk7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_f1wja")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8vthx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_b372x")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fxkdk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ijjrw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_61c2h")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cyk8i")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uydkx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qm4n7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7yain")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8gwil")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_shro1")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vh7w7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d7yee")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_3m1qs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_af2r7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hnavp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_exggp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eq50p")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_evntr")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_16cap")
-}],
-"loop": true,
-"name": &"spin",
-"speed": 5.0
-}]
-
-[node name="Quest6_Memory" type="Node2D"]
+[node name="Quest6_Memory" type="Node2D" unique_id=132291175]
 script = ExtResource("1_tuwlu")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=1056740423]
 position = Vector2(576.5, 387)
 scale = Vector2(0.7493489, 0.7519532)
 texture = ExtResource("1_jhfre")
 
-[node name="Slots" type="Node2D" parent="."]
+[node name="Slots" type="Node2D" parent="." unique_id=207845502]
 z_index = 2
 
-[node name="Slot_Water" type="Area2D" parent="Slots" groups=["slots"]]
+[node name="Slot_Water" type="Area2D" parent="Slots" unique_id=1837651206 groups=["slots"]]
 position = Vector2(590, 120)
 script = ExtResource("2_63wgl")
 seal_id = "\"water\""
 
-[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Water"]
+[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Water" unique_id=1247027081]
 position = Vector2(0.9999752, 3.999999)
 scale = Vector2(0.21679689, 0.21630858)
 texture = ExtResource("4_np07x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Water"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Water" unique_id=30242269]
 shape = SubResource("CircleShape2D_h24e0")
 
-[node name="SlotLabel" type="Label" parent="Slots/Slot_Water"]
+[node name="SlotLabel" type="Label" parent="Slots/Slot_Water" unique_id=2129897689]
 offset_left = -22.0
 offset_top = 28.0
 offset_right = 25.0
@@ -1695,21 +1436,21 @@ offset_bottom = 51.0
 text = "Water"
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot_Earth" type="Area2D" parent="Slots" groups=["slots"]]
+[node name="Slot_Earth" type="Area2D" parent="Slots" unique_id=1002709758 groups=["slots"]]
 position = Vector2(824, 259)
 script = ExtResource("2_63wgl")
 order_index = 1
 seal_id = "\"earth\""
 
-[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Earth"]
+[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Earth" unique_id=748880370]
 rotation = 0.91978854
 scale = Vector2(0.2050781, 0.20654297)
 texture = ExtResource("4_np07x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Earth"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Earth" unique_id=460982466]
 shape = SubResource("CircleShape2D_a0ny2")
 
-[node name="SlotLabel" type="Label" parent="Slots/Slot_Earth"]
+[node name="SlotLabel" type="Label" parent="Slots/Slot_Earth" unique_id=1288118210]
 offset_left = -20.0
 offset_top = 22.0
 offset_right = 22.0
@@ -1717,22 +1458,22 @@ offset_bottom = 45.0
 text = "Earth"
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot_Pearls" type="Area2D" parent="Slots" groups=["slots"]]
+[node name="Slot_Pearls" type="Area2D" parent="Slots" unique_id=1867587552 groups=["slots"]]
 position = Vector2(695, 507)
 script = ExtResource("2_63wgl")
 order_index = 2
 seal_id = "\"pearls\""
 
-[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Pearls"]
+[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Pearls" unique_id=1665160596]
 position = Vector2(3.0517578e-05, 3.0517578e-05)
 rotation = -0.33161256
 scale = Vector2(0.20410156, 0.20898438)
 texture = ExtResource("4_np07x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Pearls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Pearls" unique_id=1033851912]
 shape = SubResource("CircleShape2D_5xfx5")
 
-[node name="SlotLabel" type="Label" parent="Slots/Slot_Pearls"]
+[node name="SlotLabel" type="Label" parent="Slots/Slot_Pearls" unique_id=1977097186]
 offset_left = -25.0
 offset_top = 20.0
 offset_right = 23.0
@@ -1740,22 +1481,22 @@ offset_bottom = 43.0
 text = "Pearls"
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot_Harvest" type="Area2D" parent="Slots" groups=["slots"]]
+[node name="Slot_Harvest" type="Area2D" parent="Slots" unique_id=772325568 groups=["slots"]]
 position = Vector2(439, 455)
 script = ExtResource("2_63wgl")
 order_index = 3
 seal_id = "\"harvest\""
 
-[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Harvest"]
+[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Harvest" unique_id=1359632733]
 position = Vector2(-6.1035156e-05, 0)
 rotation = -1.1239921
 scale = Vector2(0.20410158, 0.21093749)
 texture = ExtResource("4_np07x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Harvest"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Harvest" unique_id=1605236235]
 shape = SubResource("CircleShape2D_b7p2u")
 
-[node name="SlotLabel" type="Label" parent="Slots/Slot_Harvest"]
+[node name="SlotLabel" type="Label" parent="Slots/Slot_Harvest" unique_id=53165380]
 offset_left = -23.0
 offset_top = 28.0
 offset_right = 38.0
@@ -1763,22 +1504,22 @@ offset_bottom = 51.0
 text = "Harvest"
 metadata/_edit_use_anchors_ = true
 
-[node name="Slot_Unity" type="Area2D" parent="Slots" groups=["slots"]]
+[node name="Slot_Unity" type="Area2D" parent="Slots" unique_id=1218542027 groups=["slots"]]
 position = Vector2(360, 245)
 script = ExtResource("2_63wgl")
 order_index = 4
 seal_id = "\"unity\""
 
-[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Unity"]
+[node name="Placholder" type="Sprite2D" parent="Slots/Slot_Unity" unique_id=1513051296]
 position = Vector2(-7.6293945e-06, -3.0517578e-05)
 rotation = 2.9635692
 scale = Vector2(0.20214842, 0.20336911)
 texture = ExtResource("4_np07x")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Unity"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slots/Slot_Unity" unique_id=717525632]
 shape = SubResource("CircleShape2D_5xaa5")
 
-[node name="SlotLabel" type="Label" parent="Slots/Slot_Unity"]
+[node name="SlotLabel" type="Label" parent="Slots/Slot_Unity" unique_id=1547501155]
 offset_left = -20.0
 offset_top = 28.0
 offset_right = 22.0
@@ -1786,87 +1527,87 @@ offset_bottom = 51.0
 text = "Unity"
 metadata/_edit_use_anchors_ = true
 
-[node name="Seals" type="Node2D" parent="."]
+[node name="Seals" type="Node2D" parent="." unique_id=303005352]
 z_index = 1
 
-[node name="Seal_Water" type="Area2D" parent="Seals"]
+[node name="Seal_Water" type="Area2D" parent="Seals" unique_id=887299756]
 position = Vector2(382, 619)
 script = ExtResource("3_63wgl")
 seal_id = "\"water\""
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Water"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Water" unique_id=760916205]
 position = Vector2(2, 0.5)
 shape = SubResource("CircleShape2D_np07x")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Water"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Water" unique_id=554264107]
 position = Vector2(1.001358e-05, 1.168251e-05)
 scale = Vector2(0.5031361, 0.48455065)
 sprite_frames = SubResource("SpriteFrames_gee1l")
 animation = &"idle"
 
-[node name="Seal_Earth" type="Area2D" parent="Seals"]
+[node name="Seal_Earth" type="Area2D" parent="Seals" unique_id=209430064]
 position = Vector2(989, 669)
 script = ExtResource("3_63wgl")
 seal_id = "\"earth\""
 order_index = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Earth"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Earth" unique_id=1647880325]
 shape = SubResource("CircleShape2D_ghfqk")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Earth"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Earth" unique_id=1167482215]
 position = Vector2(1, -2.0000153)
 scale = Vector2(0.5085551, 0.4781369)
 sprite_frames = SubResource("SpriteFrames_fo2jj")
 animation = &"spin"
 
-[node name="Seal_Pearls" type="Area2D" parent="Seals"]
+[node name="Seal_Pearls" type="Area2D" parent="Seals" unique_id=254533875]
 position = Vector2(155, 595)
 script = ExtResource("3_63wgl")
 seal_id = "\"pearls\""
 order_index = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Pearls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Pearls" unique_id=987579563]
 shape = SubResource("CircleShape2D_j5b5q")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Pearls"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Pearls" unique_id=1522491757]
 position = Vector2(-1, 0)
 scale = Vector2(0.48550725, 0.5)
 sprite_frames = SubResource("SpriteFrames_2qy1v")
 animation = &"spin"
 
-[node name="Seal_Harvest" type="Area2D" parent="Seals"]
+[node name="Seal_Harvest" type="Area2D" parent="Seals" unique_id=726202512]
 position = Vector2(544, 681)
 script = ExtResource("3_63wgl")
 seal_id = "\"harvest\""
 order_index = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Harvest"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Harvest" unique_id=1972855211]
 shape = SubResource("CircleShape2D_ucrmr")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Harvest"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Harvest" unique_id=583250708]
 position = Vector2(-7.6293945e-06, 1.5258789e-05)
 scale = Vector2(0.48431733, 0.47490707)
 sprite_frames = SubResource("SpriteFrames_v08am")
 animation = &"spin"
 
-[node name="Seal_Unity" type="Area2D" parent="Seals"]
+[node name="Seal_Unity" type="Area2D" parent="Seals" unique_id=1438049096]
 position = Vector2(750, 660)
 script = ExtResource("3_63wgl")
 seal_id = "\"unity\""
 order_index = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Unity"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Seals/Seal_Unity" unique_id=2056494152]
 shape = SubResource("CircleShape2D_sl2y6")
 
-[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Unity"]
+[node name="Sprite" type="AnimatedSprite2D" parent="Seals/Seal_Unity" unique_id=1727015686]
 position = Vector2(-1, -7.6293945e-06)
 scale = Vector2(0.47586858, 0.48552117)
 sprite_frames = SubResource("SpriteFrames_qeipd")
 animation = &"spin"
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1768772673]
 
-[node name="Dimmer" type="ColorRect" parent="UI"]
+[node name="Dimmer" type="ColorRect" parent="UI" unique_id=882709491]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -1880,92 +1621,70 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 0.4)
 
-[node name="DialogBox" type="Control" parent="UI"]
+[node name="DialogBox" type="Control" parent="UI" unique_id=992074763]
 layout_mode = 3
-anchor_right = 0.34100002
-anchor_bottom = 0.21000001
-offset_left = 51.0
-offset_top = 86.0
-offset_right = -203.83203
-offset_bottom = 43.72
+anchor_left = 0.163
+anchor_top = 0.21900001
+anchor_right = 0.85600007
+anchor_bottom = 0.578
+offset_left = -136.776
+offset_top = -82.19202
+offset_right = 39.88794
+offset_bottom = 104.09601
 mouse_filter = 2
 script = ExtResource("11_h24e0")
 
-[node name="Panel" type="Panel" parent="UI/DialogBox"]
-layout_mode = 0
-offset_left = 146.0
-offset_top = 35.0
-offset_right = 912.0
-offset_bottom = 422.0
+[node name="Panel" type="Panel" parent="UI/DialogBox" unique_id=1693483972]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.15
+anchor_top = 0.165
+anchor_right = 0.9620001
+anchor_bottom = 0.77500004
+offset_left = -15.25
+offset_top = -0.23000336
+offset_right = 0.049926758
+offset_bottom = -0.05001831
 
-[node name="VBox" type="VBoxContainer" parent="UI/DialogBox/Panel"]
-layout_mode = 0
+[node name="VBox" type="VBoxContainer" parent="UI/DialogBox/Panel" unique_id=1305086489]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_left = 35.0
 offset_top = 22.0
-offset_right = 215.0
-offset_bottom = 204.0
+offset_right = -33.0
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="QuestionLabel" type="Label" parent="UI/DialogBox/Panel/VBox"]
+[node name="QuestionLabel" type="Label" parent="UI/DialogBox/Panel/VBox" unique_id=1223901472]
 layout_mode = 2
 theme_override_font_sizes/font_size = 24
 
-[node name="Answers" type="VBoxContainer" parent="UI/DialogBox/Panel/VBox"]
+[node name="Answers" type="VBoxContainer" parent="UI/DialogBox/Panel/VBox" unique_id=1934026557]
 layout_mode = 2
 
-[node name="BtnA" type="Button" parent="UI/DialogBox/Panel/VBox/Answers"]
+[node name="BtnA" type="Button" parent="UI/DialogBox/Panel/VBox/Answers" unique_id=1987314751]
 layout_mode = 2
 
-[node name="BtnB" type="Button" parent="UI/DialogBox/Panel/VBox/Answers"]
+[node name="BtnB" type="Button" parent="UI/DialogBox/Panel/VBox/Answers" unique_id=2043070106]
 layout_mode = 2
 
-[node name="BtnC" type="Button" parent="UI/DialogBox/Panel/VBox/Answers"]
+[node name="BtnC" type="Button" parent="UI/DialogBox/Panel/VBox/Answers" unique_id=1426445927]
 layout_mode = 2
 
-[node name="BtnD" type="Button" parent="UI/DialogBox/Panel/VBox/Answers"]
+[node name="BtnD" type="Button" parent="UI/DialogBox/Panel/VBox/Answers" unique_id=772456017]
 layout_mode = 2
 
-[node name="FeedbackLabel" type="Label" parent="UI/DialogBox/Panel/VBox"]
+[node name="FeedbackLabel" type="Label" parent="UI/DialogBox/Panel/VBox" unique_id=722611207]
 layout_mode = 2
 
-[node name="ContinueBtn" type="Button" parent="UI/DialogBox/Panel/VBox"]
+[node name="ContinueBtn" type="Button" parent="UI/DialogBox/Panel/VBox" unique_id=1827827437]
 layout_mode = 2
 text = "Continue"
 
-[node name="CompletionOverlay" type="Control" parent="UI"]
-visible = false
-layout_mode = 3
-anchors_preset = 0
-offset_left = 372.0
-offset_top = 172.0
-offset_right = 383.0
-offset_bottom = 172.0
-mouse_filter = 2
+[node name="OptionsOverlay" parent="." unique_id=1156552052 instance=ExtResource("13_ghfqk")]
+in_quest = true
 
-[node name="CenterContainer" type="CenterContainer" parent="UI/CompletionOverlay"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 36.636
-offset_right = -362.99603
-offset_bottom = 40.0
-
-[node name="VBox" type="VBoxContainer" parent="UI/CompletionOverlay/CenterContainer"]
-layout_mode = 2
-
-[node name="FinalSeal" type="AnimatedSprite2D" parent="UI/CompletionOverlay/CenterContainer/VBox"]
-visible = false
-position = Vector2(300, 200)
-sprite_frames = SubResource("SpriteFrames_xeyxw")
-animation = &"spin"
-
-[node name="ResultLabel" type="Label" parent="UI/CompletionOverlay/CenterContainer/VBox"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 48
-text = "Quest Completed"
-
-[node name="ScoreLabel" type="Label" parent="UI/CompletionOverlay/CenterContainer/VBox"]
-layout_mode = 2
-
-[node name="RetryBtn" type="Button" parent="UI/CompletionOverlay/CenterContainer/VBox"]
-visible = false
-layout_mode = 2
-text = "Retry"
+[node name="QuestResultPanel" parent="." unique_id=570383011 instance=ExtResource("13_j5b5q")]

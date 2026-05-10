@@ -13,7 +13,6 @@ var _elapsed: float = 0.0
 var _phase: int = 0
 
 func _ready() -> void:
-	MusicManager.resume_music()
 	target_scene = Global.next_scene
 	if target_scene == "":
 		push_error("LoadingScreen: No target scene set in Global.next_scene")

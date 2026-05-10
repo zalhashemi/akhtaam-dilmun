@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://hcs400igo2ty"]
+
+[ext_resource type="Script" uid="uid://5csuqaamc06v" path="res://scripts/IntroVideo.gd" id="1"]
+
+[node name="IntroVideo" type="Node" unique_id=2024679028]
+script = ExtResource("1")

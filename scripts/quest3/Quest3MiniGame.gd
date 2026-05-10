@@ -31,8 +31,8 @@ func _ready():
 	countdown_timer.one_shot = false
 	if not countdown_timer.timeout.is_connected(Callable(self, "_on_countdown_timeout")):
 		countdown_timer.timeout.connect(Callable(self, "_on_countdown_timeout"))
-	counter.visible = false
-	timer_label.visible = false
+	counter.visible = true
+	timer_label.visible = true
 	var _input_overlay: Node = load("res://scripts/InputHintOverlay.gd").new()
 	_input_overlay.setup("arrow_keys")
 	add_child(_input_overlay)
@@ -43,7 +43,7 @@ func _start_onboarding() -> void:
 	var tut: Node = load("res://scripts/OnboardingTutorial.gd").new()
 	tut.setup([
 		{
-			"en": "This is your boat! Use the Arrow Keys (or W/A/S/D) to sail it.",
+			"en": "This is your boat! Use the Arrow Keys to sail it.",
 			"ar": "\u0647\u0630\u0647 \u0633\u0641\u064a\u0646\u062a\u0643! \u0627\u0633\u062a\u062e\u062f\u0645 \u0645\u0641\u0627\u062a\u064a\u062d \u0627\u0644\u0623\u0633\u0647\u0645 \u0644\u0644\u0625\u0628\u062d\u0627\u0631.",
 			"target": Vector2(0.5, 0.52),
 			"align": "top"
@@ -51,19 +51,18 @@ func _start_onboarding() -> void:
 		{
 			"en": "Sail over the pearls to collect them. Get them all!",
 			"ar": "\u0645\u064f\u0631\u0651 \u0641\u0648\u0642 \u0627\u0644\u0644\u0624\u0644\u0624 \u0628\u0633\u0641\u064a\u0646\u062a\u0643 \u0644\u062c\u0645\u0639\u0647. \u0627\u062c\u0645\u0639 \u0643\u0644 \u062d\u0628\u0629!",
-			"target": Vector2(0.28, 0.35),
+			"target": Vector2(0.56, 0.34),
 			"align": "bottom"
 		},
 		{
-			"en": "You have 2 minutes. Don't let the timer reach 00:00!",
-			"ar": "\u0644\u062f\u064a\u0643 \u062f\u0642\u064a\u0642\u062a\u0627\u0646. \u0644\u0627 \u062a\u062f\u0639 \u0627\u0644\u0645\u0624\u0642\u062a \u064a\u0635\u0644 \u0625\u0644\u0649 00:00!",
-			"target": Vector2(0.13, 0.07),
+			"en": "The timer starts now! You have 2 minutes \u2014 don't let it reach 00:00!",
+			"ar": "\u0627\u0644\u0645\u0624\u0642\u062a \u064a\u0628\u062f\u0623 \u0627\u0644\u0622\u0646! \u0644\u062f\u064a\u0643 \u062f\u0642\u064a\u0642\u062a\u0627\u0646 \u2014 \u0644\u0627 \u062a\u062f\u0639\u0647 \u064a\u0635\u0644 \u0625\u0644\u0649 00:00!",
+			"target": Vector2(0.86, 0.05),
+			"target_ar": Vector2(0.14, 0.05),
 			"align": "bottom"
 		},
 	])
 	tut.tutorial_done.connect(func():
-		counter.visible     = true
-		timer_label.visible = true
 		countdown_timer.start()
 	)
 	add_child(tut)

@@ -9,6 +9,7 @@ const _InstructionPanel = preload("res://scripts/InstructionPanel.gd")
 @onready var result_panel: CanvasLayer = $QuestResultPanel
 
 var finished := false
+var _game_started := false
 
 func _ready():
 	ui_label.text = tr("Q2_INTRO")
@@ -19,8 +20,14 @@ func _ready():
 	result_panel.exit_pressed.connect(_on_exit)
 	result_panel.continue_pressed.connect(_on_continue)
 	_apply_arabic_font_to_ui()
-	ui_label.visible = false
-	timer_label.visible = false
+	# Show labels immediately so they're visible during the tutorial
+	ui_label.visible = true
+	timer_label.visible = true
+	var _init_time := "02:00"
+	if Global.current_locale == "ar":
+		timer_label.text = TextServerManager.get_primary_interface().format_number(_init_time)
+	else:
+		timer_label.text = _init_time
 	var _input_overlay: Node = load("res://scripts/InputHintOverlay.gd").new()
 	_input_overlay.setup("mouse")
 	add_child(_input_overlay)
@@ -33,8 +40,8 @@ func _start_onboarding() -> void:
 		{
 			"en": "These are the broken artifact pieces \u2014 scattered across the board.",
 			"ar": "\u0647\u0630\u0647 \u0642\u0637\u0639 \u0627\u0644\u0623\u062b\u0631 \u0627\u0644\u0645\u0643\u0633\u0648\u0631 \u0627\u0644\u0645\u0628\u0639\u062b\u0631\u0629 \u0639\u0644\u0649 \u0627\u0644\u0644\u0648\u062d\u0629.",
-			"target": Vector2(0.25, 0.75),
-			"align": "top"
+			"target": Vector2(0.19, 0.40),
+			"align": "right"
 		},
 		{
 			"en": "Drag each piece and drop it into its matching spot. It snaps when correct!",
@@ -43,21 +50,21 @@ func _start_onboarding() -> void:
 			"align": "bottom"
 		},
 		{
-			"en": "You have 2 minutes! Watch the timer and finish before it runs out.",
-			"ar": "\u0644\u062f\u064a\u0643 \u062f\u0642\u064a\u0642\u062a\u0627\u0646! \u0631\u0627\u0642\u0628 \u0627\u0644\u0645\u0624\u0642\u062a \u0648\u0623\u0646\u0647\u0650 \u0642\u0628\u0644 \u0646\u0641\u0627\u062f\u0647.",
-			"target": Vector2(0.5, 0.06),
+			"en": "The timer starts now! You have 2 minutes \u2014 finish before it runs out.",
+			"ar": "\u0627\u0644\u0645\u0624\u0642\u062a \u064a\u0628\u062f\u0623 \u0627\u0644\u0622\u0646! \u0644\u062f\u064a\u0643 \u062f\u0642\u064a\u0642\u062a\u0627\u0646 \u2014 \u0623\u0646\u0647\u0650 \u0642\u0628\u0644 \u0646\u0641\u0627\u062f\u0647.",
+			"target": Vector2(0.88, 0.04),
+			"target_ar": Vector2(0.11, 0.06),
 			"align": "bottom"
 		},
 	])
 	tut.tutorial_done.connect(func():
-		ui_label.visible   = true
-		timer_label.visible = true
+		_game_started = true
 		countdown_timer.start()
 	)
 	add_child(tut)
 
 func _process(_delta):
-	if finished:
+	if finished or not _game_started:
 		return
 	_update_timer_label()
 
@@ -65,11 +72,11 @@ func _update_timer_label():
 	var remaining := int(ceil(countdown_timer.time_left))
 	var minutes := remaining / 60
 	var seconds := remaining % 60
+	var formatted := "%02d:%02d" % [minutes, seconds]
 	if Global.current_locale == "ar":
-		timer_label.text = "%02d:%02d" % [minutes, seconds]
-		timer_label.text = TextServerManager.get_primary_interface().format_number(timer_label.text)
+		timer_label.text = TextServerManager.get_primary_interface().format_number(formatted)
 	else:
-		timer_label.text = "%02d:%02d" % [minutes, seconds]
+		timer_label.text = formatted
 
 func _check_puzzle_complete():
 	if finished:
@@ -108,13 +115,14 @@ func _on_exit() -> void:
 func _apply_arabic_font_to_ui() -> void:
 	if Global.current_locale != "ar" or Global.arabic_font == null:
 		return
-	var text_nodes: Array = [
-		$UI/Label,
-		$UI/TimerLabel,
-	]
-	for node in text_nodes:
-		if node != null:
-			node.add_theme_font_override("font", Global.arabic_font)
-			node.add_theme_font_size_override("font_size", node.get_theme_font_size("font_size") + Global.ARABIC_SIZE_BONUS)
-			if node is Label:
-				node.text_direction = Control.TEXT_DIRECTION_RTL
+	var lbl := $UI/Label
+	if lbl != null:
+		lbl.add_theme_font_override("font", Global.arabic_font)
+		lbl.add_theme_font_size_override("font_size", lbl.get_theme_font_size("font_size") + Global.ARABIC_SIZE_BONUS - 2)
+		lbl.add_theme_constant_override("line_spacing", -12)
+		lbl.text_direction = Control.TEXT_DIRECTION_RTL
+	var tmr := $UI/TimerLabel
+	if tmr != null:
+		tmr.add_theme_font_override("font", Global.arabic_font)
+		tmr.add_theme_font_size_override("font_size", tmr.get_theme_font_size("font_size") + Global.ARABIC_SIZE_BONUS)
+		tmr.text_direction = Control.TEXT_DIRECTION_RTL

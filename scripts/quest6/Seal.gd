@@ -13,7 +13,6 @@ var _locked := false
 var _drag_offset := Vector2.ZERO
 var start_pos := Vector2.ZERO
 
-# Tweak these if you want
 const DRAG_Z := 2000
 const LOCKED_Z := 1500
 const NORMAL_Z := 10

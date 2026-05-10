@@ -1,0 +1,170 @@
+keys,en,ar
+QUEST_1_NAME,Quest 1: Water,المهمة ١: الماء
+QUEST_2_NAME,Quest 2: Earth,المهمة ٢: الأرض
+QUEST_3_NAME,Quest 3: Pearls,المهمة ٣: اللؤلؤ
+QUEST_4_NAME,Quest 4: Harvest,المهمة ٤: الحصاد
+QUEST_5_NAME,Quest 5: Unity,المهمة ٥: الوحدة
+QUEST_6_NAME,Quest 6: Memory,المهمة ٦: الذاكرة
+QUEST_COMPLETED_LABEL,%s — Completed ✓,%s — مكتملة ✓
+PRESS_E_TO_START,Press E to start %s,اضغط E لبدء %s
+QUEST_FALLBACK,Quest %d,المهمة %d
+ALL_QUESTS_COMPLETED,All quests completed,اكتملت جميع المهام
+SEALS_MAX,Seals: 6/6,الأختام: 6/6
+THE_END,The End,النهاية
+SEALS_COUNT,Seals: %d/6,الأختام: %s/6
+Q1_INSTRUCTIONS,"Draw a route from the Port (buildings with the anchor)
+ to one of the landmarks!
+ Make sure you stay between the lines.
+ You have 3 tries","ارسم طريقاً من الميناء (المباني التي بها مرساة)
+ إلى أحد المعالم!
+ تأكد من البقاء بين الخطوط.
+ لديك 3 محاولات"
+Q1_FACT_1,Water was vital to Dilmun for farming and trade.,كان الماء ضرورياً لدلمون للزراعة والتجارة.
+Q1_FACT_2,Dilmun thrived because of its freshwater springs.,ازدهرت دلمون بفضل ينابيعها العذبة.
+Q1_FACT_3,Modern Bahrain stands where Dilmun once flourished.,تقوم البحرين الحديثة على أرض دلمون التي ازدهرت قديماً.
+Q1_FACT_4,Canals helped connect inland springs to coastal settlements.,ساعدت القنوات في ربط الينابيع الداخلية بالمستوطنات الساحلية.
+Q1_FACT_5,Freshwater supported date palms and early agriculture.,دعمت المياه العذبة أشجار النخيل والزراعة المبكرة.
+Q1_FACT_6,Water routes strengthened trade by keeping communities supplied.,عززت مسارات المياه التجارة من خلال إمداد المجتمعات باحتياجاتها.
+QUEST_COMPLETED,Quest Completed!,اكتملت المهمة!
+Q1_FAIL_OUTSIDE,Tracing outside breaks the flow!,الرسم خارج الحدود يقطع التدفق!
+Q1_FAIL_RESULT,"Quest Failed
+
+%s
+
+You ran out of tries.","فشلت المهمة
+
+%s
+
+لقد نفدت محاولاتك."
+Q1_TRIES_LEFT,"%s
+Tries left: %d/%d","%s
+المحاولات المتبقية: %d/%d"
+TRIES_LABEL,Tries: %d/%d,المحاولات: %d/%d
+Q2_INTRO,"From the ruins of Tylos, this is a Lagynos Pottery.
+It was used for serving and pouring drinks at gatherings.","من أنقاض تيلوس، هذه إناء فخاري لاجينوس.
+كان يُستخدم لتقديم المشروبات وسكبها في التجمعات."
+QUEST_COMPLETED_ALT,Quest Completed,اكتملت المهمة
+QUEST_FAILED,Quest Failed,فشلت المهمة
+TRY_AGAIN,Try again!,حاول مرة أخرى!
+Q3_PEARLS_COLLECTED,You collected %d/%d pearls.,جمعت %d/%d لؤلؤة.
+Q3_ALL_COLLECTED,All pearls collected!,تم جمع كل اللؤلؤ!
+Q4_HARVEST_SCORE,Harvest: %d / %d,الحصاد: %s / %s
+LIVES_LABEL,Lives: %d,الأرواح: %s
+Q4_SPOILED,Spoiled fruit! -1 life,فاكهة فاسدة! -1 روح
+Q4_WRONG_BASKET,Wrong basket! -1 life,السلة الخطأ! -1 روح
+Q4_MISSED,You missed it! -1 life,فاتك! -1 روح
+Q4_SPOILED_FELL,Spoiled fruit fell in! -1 life,سقطت فاكهة فاسدة! -1 روح
+Q5_CM_1,What a kind thing to do!,يا له من عمل طيب!
+Q5_CM_2,That's true honesty. Bless you.,هذه أمانة حقيقية. بارك الله فيك.
+Q5_CM_3,You have a generous heart.,قلبك كريم.
+Q5_CM_4,Fair and kind — that's the Dilmun way.,عادل ولطيف — هكذا كان أهل دلمون.
+Q5_CM_5,You chose mercy over money. Good.,اخترت الرحمة على المال. أحسنت.
+Q5_CM_6,That would earn trust in any market.,هذا يكسب الثقة في أي سوق.
+Q5_CM_7,You did the right thing. Thank you.,فعلت الصواب. شكراً لك.
+Q5_CM_8,Your kindness will return to you.,ستعود إليك لطفك يوماً ما.
+Q5_CF_1,That's a good heart out at sea.,هذا قلب طيب في عرض البحر.
+Q5_CF_2,You share when others would take. Respect.,تتشارك حين يأخذ الآخرون. احترام.
+Q5_CF_3,That's how communities survive.,هكذا تعيش المجتمعات.
+Q5_CF_4,You're the kind of crew I'd want.,أنت من طاقم البحارة الذين أريدهم.
+Q5_CF_5,Good choice — the sea rewards the humble.,خيار جيد — البحر يكافئ المتواضعين.
+Q5_CF_6,That was generous. Well done.,كان ذلك كرماً. أحسنت.
+Q5_CF_7,"You helped, not judged. Nice.",ساعدت ولم تحكم. رائع.
+Q5_CF_8,That's real strength — helping others.,هذه القوة الحقيقية — مساعدة الآخرين.
+Q5_CS_1,Beautiful choice — you kept it gentle.,خيار جميل — حافظت على اللطف.
+Q5_CS_2,That's wisdom. Words matter.,هذه حكمة. الكلمات مهمة.
+Q5_CS_3,You made space for everyone. Well done.,أتحت المجال للجميع. أحسنت.
+Q5_CS_4,"A kind story can heal, not harm.",القصة اللطيفة تشفي ولا تؤذي.
+Q5_CS_5,That's how you keep peace in a crowd.,هكذا تحافظ على السلام بين الناس.
+Q5_CS_6,You listened first — that's rare.,أنصتَّ أولاً — هذا نادر.
+Q5_CS_7,You chose compassion. Excellent.,اخترت التعاطف. ممتاز.
+Q5_CS_8,That's the mark of a good storyteller.,هذه علامة الراوي الجيد.
+Q5_WM_1,That wasn't very nice.,لم يكن هذا لطيفاً.
+Q5_WM_2,That would hurt someone who's already tired.,سيؤذي ذلك شخصاً متعباً أصلاً.
+Q5_WM_3,"Not everything is about profit, you know.",ليس كل شيء عن الربح، أتعلم.
+Q5_WM_4,That choice would break trust in the market.,هذا الخيار سيكسر الثقة في السوق.
+Q5_WM_5,You could have been kinder.,كان بإمكانك أن تكون أكثر لطفاً.
+Q5_WM_6,That's not fair… try again next time.,هذا ليس عدلاً… حاول مجدداً في المرة القادمة.
+Q5_WM_7,That's a cold way to treat people.,هذه طريقة باردة لمعاملة الناس.
+Q5_WM_8,That choice would leave someone feeling small.,هذا الخيار سيجعل أحدهم يشعر بالصغار.
+Q5_WF_1,That choice leaves someone hungry.,هذا الخيار يترك أحدهم جائعاً.
+Q5_WF_2,That's not how we look after each other.,لسنا هكذا نهتم ببعضنا.
+Q5_WF_3,You'd lose respect on the docks for that.,ستفقد الاحترام في الرصيف بسبب هذا.
+Q5_WF_4,That was selfish — the sea doesn't like that.,كان ذلك أنانية — البحر لا يحب ذلك.
+Q5_WF_5,That wouldn't help the community.,هذا لن يساعد المجتمع.
+Q5_WF_6,That's a harsh decision for a hard day.,هذا قرار قاسٍ ليوم صعب.
+Q5_WF_7,Not a good call… think of others.,ليس قراراً جيداً… فكر في الآخرين.
+Q5_WF_8,That's not the kind of help they needed.,هذا ليس نوع المساعدة التي يحتاجونها.
+Q5_WS_1,That would make someone feel left out.,سيجعل ذلك أحدهم يشعر بالإقصاء.
+Q5_WS_2,Those words could sting.,تلك الكلمات قد تؤلم.
+Q5_WS_3,That's not a gentle way to lead.,هذه ليست طريقة لطيفة للقيادة.
+Q5_WS_4,That choice could start more fighting.,هذا الخيار قد يشعل المزيد من الخلاف.
+Q5_WS_5,You could have handled that with more care.,كان بإمكانك التعامل مع ذلك بمزيد من الحذر.
+Q5_WS_6,"Stories should bring people together, not apart.",القصص يجب أن تجمع الناس لا أن تفرقهم.
+Q5_WS_7,That wasn't considerate.,لم يكن ذلك مراعياً للآخرين.
+Q5_WS_8,That choice would quiet someone who needs courage.,هذا الخيار سيُسكت من يحتاج إلى الشجاعة.
+Q5_Q1_PROMPT,A tired woman can only pay part of the price for dates. What should you do?,امرأة متعبة لا تستطيع دفع سوى جزء من ثمن التمر. ماذا ستفعل؟
+Q5_Q1_A,Give her the dates anyway and wish her well.,أعطِها التمر على أي حال وتمنَّ لها الخير.
+Q5_Q1_B,Tell her to leave if she can't pay.,أخبرها بالمغادرة إن لم تستطع الدفع.
+Q5_Q2_PROMPT,You receive extra coins by mistake. What is the kindest choice?,تلقيت عملات إضافية بالخطأ. ما هو الخيار الأكثر لطفاً؟
+Q5_Q2_A,Keep the extra coins.,احتفظ بالعملات الإضافية.
+Q5_Q2_B,Tell them and return the extra coins.,أخبرهم وأعد العملات الإضافية.
+Q5_Q3_PROMPT,A small boy is shy to ask about prices. What do you do?,صبي صغير يخجل من السؤال عن الأسعار. ماذا ستفعل؟
+Q5_Q3_A,Speak gently and explain clearly.,تكلم بلطف واشرح بوضوح.
+Q5_Q3_B,Ignore him and talk only to adults.,تجاهله وتكلم مع البالغين فقط.
+Q5_Q4_PROMPT,The catch is small. A family hasn't eaten. What should you do?,الصيد قليل. عائلة لم تأكل. ماذا ينبغي أن تفعل؟
+Q5_Q4_A,Share some fish with them.,شارك بعض السمك معهم.
+Q5_Q4_B,Sell only to high-paying customers.,بِع فقط للزبائن الأعلى دفعاً.
+Q5_Q5_PROMPT,A young fisherman keeps making mistakes. How do you help?,صياد شاب يرتكب الأخطاء باستمرار. كيف تساعده؟
+Q5_Q5_A,Teach him patiently.,علِّمه بصبر.
+Q5_Q5_B,Tell him to give up.,أخبره بالاستسلام.
+Q5_Q6_PROMPT,You find a dropped basket of pearls. What do you do?,تجد سلة لؤلؤ مفقودة. ماذا ستفعل؟
+Q5_Q6_A,Keep it.,احتفظ بها.
+Q5_Q6_B,Ask around to find the owner.,اسأل من حولك لإيجاد صاحبها.
+Q5_Q7_PROMPT,Two children argue over who heard the story first. What should you do?,يتشاجر طفلان حول من سمع القصة أولاً. ماذا ينبغي أن تفعل؟
+Q5_Q7_A,Let both sit and tell it kindly.,دع كليهما يجلسان واحكِها بلطف.
+Q5_Q7_B,Choose one child and ignore the other.,اختر طفلاً واحداً وتجاهل الآخر.
+Q5_Q8_PROMPT,Your story might hurt someone's feelings. What should you do?,قصتك قد تؤذي مشاعر أحدهم. ماذا ينبغي أن تفعل؟
+Q5_Q8_A,Tell it more gently.,احكِها بلطف أكثر.
+Q5_Q8_B,Say it anyway.,قلها على أي حال.
+Q5_Q9_PROMPT,A shy listener wants to speak. What do you do?,مستمع خجول يريد التحدث. ماذا ستفعل؟
+Q5_Q9_A,Give them time and thank them.,أعطِه الوقت واشكره.
+Q5_Q9_B,Tell them to speak louder or leave.,أخبره بالتحدث بصوت أعلى أو المغادرة.
+QUESTION_PROGRESS,Question %d of %d,السؤال %s من %s
+SCORE_LABEL,Score: %d/%d,النتيجة: %s/%s
+WELL_DONE,Well done.,أحسنت.
+NOT_BEST_CHOICE,That wasn't the best choice.,لم يكن ذلك أفضل خيار.
+Q6_WATER_Q,Why is water still a precious resource in Bahrain today?,لماذا لا يزال الماء مورداً ثميناً في البحرين اليوم؟
+Q6_WATER_A,Because Bahrain has many natural rivers,لأن البحرين تمتلك أنهاراً طبيعية كثيرة
+Q6_WATER_B,Because Bahrain depends on desalination and must conserve water,لأن البحرين تعتمد على تحلية المياه ويجب الحفاظ عليها
+Q6_WATER_C,Because water is only used for farming,لأن الماء يُستخدم للزراعة فقط
+Q6_WATER_D,Because rainfall is constant all year,لأن الأمطار منتظمة طوال العام
+Q6_WATER_EXPLAIN,"Bahrain relies heavily on desalination, so conserving water is important.",تعتمد البحرين اعتماداً كبيراً على تحلية المياه، لذا فإن الحفاظ على الماء أمر مهم.
+Q6_EARTH_Q,How do historical sites and artifacts help Bahrain today?,كيف تساعد المواقع التاريخية والقطع الأثرية البحرين اليوم؟
+Q6_EARTH_A,They are only useful for tourists,إنها مفيدة للسياح فقط
+Q6_EARTH_B,They preserve national identity and educate future generations,تحافظ على الهوية الوطنية وتُعلِّم الأجيال القادمة
+Q6_EARTH_C,They replace modern buildings,إنها تحل محل المباني الحديثة
+Q6_EARTH_D,They are no longer relevant,لم تعد ذات صلة
+Q6_EARTH_EXPLAIN,Heritage sites and museums preserve identity and support learning.,تحافظ مواقع التراث والمتاحف على الهوية وتدعم التعلم.
+Q6_PEARLS_Q,Why are pearls important in Bahrain's history?,لماذا يُعدّ اللؤلؤ مهماً في تاريخ البحرين؟
+Q6_PEARLS_A,They were used mainly for decoration,كانت تُستخدم أساساً للزينة
+Q6_PEARLS_B,They were discovered after oil,تم اكتشافها بعد النفط
+Q6_PEARLS_C,Pearl diving was Bahrain's main economy before oil,كان الغوص على اللؤلؤ الاقتصاد الرئيسي للبحرين قبل النفط
+Q6_PEARLS_D,Pearls were imported from other countries,كان اللؤلؤ يُستورد من دول أخرى
+Q6_PEARLS_EXPLAIN,Pearling shaped Bahrain's economy and culture long before oil.,شكّلت صناعة اللؤلؤ اقتصاد البحرين وثقافتها قبل اكتشاف النفط بزمن طويل.
+Q6_HARVEST_Q,How do Bahrainis honor tradition while embracing modern life?,كيف يحترم البحرينيون التراث مع تبني الحياة الحديثة؟
+Q6_HARVEST_A,By rejecting technology,برفض التكنولوجيا
+Q6_HARVEST_B,By preserving traditions while using modern tools and education,بالحفاظ على التقاليد مع استخدام الأدوات الحديثة والتعليم
+Q6_HARVEST_C,By forgetting old customs,بنسيان العادات القديمة
+Q6_HARVEST_D,By only focusing on the past,بالتركيز على الماضي فقط
+Q6_HARVEST_EXPLAIN,Modern progress can happen while respecting and celebrating traditions.,يمكن أن يتحقق التقدم الحديث مع احترام التقاليد والاحتفال بها.
+Q6_UNITY_Q,Why is cooperation important in Bahraini society today?,لماذا يُعدّ التعاون مهماً في المجتمع البحريني اليوم؟
+Q6_UNITY_A,It reduces competition,يقلل المنافسة
+Q6_UNITY_B,It strengthens community and shared national values,يعزز المجتمع والقيم الوطنية المشتركة
+Q6_UNITY_C,It slows development,يُبطئ التطور
+Q6_UNITY_D,It is only important in history,إنه مهم في التاريخ فقط
+Q6_UNITY_EXPLAIN,Unity supports community strength and shared progress.,تدعم الوحدة قوة المجتمع والتقدم المشترك.
+PORT,Port,ميناء
+LANDMARK,Landmark,معلم
+LANG_SELECT_TITLE,Akhtaam Dilmun | أختام دلمون,أختام دلمون | Akhtaam Dilmun
+BTN_ENGLISH,English,English
+BTN_ARABIC,العربية,العربية

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cwi7up28pq7xx"]
+
+[ext_resource type="Script" uid="uid://1l5wxmtjaxa8" path="res://scripts/loading_screen.gd" id="1_ep5rh"]
+[ext_resource type="Script" uid="uid://ddenomdwsuln3" path="res://scripts/spinner.gd" id="2_hprjd"]
+
+[node name="LoadingScreen" type="CanvasLayer" unique_id=1727261520]
+script = ExtResource("1_ep5rh")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1619293553]
+offset_right = 1168.0
+offset_bottom = 810.0
+color = Color(0.3907437, 0.2437247, 0.08508501, 1)
+
+[node name="Spinner" type="Node2D" parent="." unique_id=385806709]
+script = ExtResource("2_hprjd")

@@ -50,22 +50,23 @@ func _input_event(viewport, event, shape_idx) -> void:
 func _physics_process(delta: float) -> void:
 	if _landed:
 		return
-
 	if _dragging:
-		global_position = get_viewport().get_mouse_position() + _drag_offset
+		var screen_size = get_viewport_rect().size
+		var raw_pos = get_viewport().get_mouse_position() + _drag_offset
+		global_position = Vector2(
+			clamp(raw_pos.x, 0, screen_size.x),
+			clamp(raw_pos.y, 0, screen_size.y)
+		)
 		_refresh_current_basket()
 	else:
 		global_position.y += fall_speed * delta
 		_refresh_current_basket()
-
-		# Key fix: falling into basket counts (even if user never drops it)
 		if _current_basket != null:
 			_landed = true
 			fell_into_basket.emit(self, _current_basket)
 			dropped.emit(self, _current_basket)
 			queue_free()
 			return
-
 		if global_position.y > offscreen_y:
 			queue_free()
 

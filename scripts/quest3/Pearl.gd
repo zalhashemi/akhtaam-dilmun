@@ -13,7 +13,6 @@ func _on_hit(body):
 	if body.name == "Boat":
 		collected = true
 
-		# Safely notify the quest controller
 		get_tree().call_group("quest3_game", "on_pearl_collected")
 
 		queue_free()

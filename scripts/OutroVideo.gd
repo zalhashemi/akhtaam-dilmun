@@ -51,7 +51,6 @@ func _ready() -> void:
 		var skip_btn := _make_skip_button(is_ar)
 		canvas.add_child(skip_btn)
 
-		MusicManager.pause_music()
 		_vp.play()
 		_vp.finished.connect(_go_to_end_screen)
 	else:
@@ -99,7 +98,6 @@ func _go_to_end_screen() -> void:
 	_going = true
 	if _vp != null and _vp.is_playing():
 		_vp.stop()
-	MusicManager.resume_music()
 
 	var status := ResourceLoader.load_threaded_get_status(GAME_END_SCENE)
 	if status == ResourceLoader.THREAD_LOAD_LOADED:

@@ -38,27 +38,55 @@ func _ready() -> void:
 
 
 func _start_onboarding() -> void:
+	# Populate the dialog with a preview question (Water) so it's ready for step 3.
+	# show_question() calls show() internally, so we immediately hide it again.
+	dialog.show_question(QUESTIONS["water"])
+	dialog.hide()
+
 	var tut: Node = load("res://scripts/OnboardingTutorial.gd").new()
 	tut.setup([
 		{
 			"en": "These are the 5 Seals — each one represents a quest you have completed.",
 			"ar": "\u0647\u0630\u0647 \u0647\u064a \u0627\u0644\u0623\u062e\u062a\u0627\u0645 \u0627\u0644\u062e\u0645\u0633\u0629 \u2014 \u0643\u0644 \u062e\u062a\u0645 \u064a\u0645\u062b\u0644 \u0645\u0647\u0645\u0629 \u0623\u0643\u0645\u0644\u062a\u0647\u0627.",
-			"target": Vector2(0.76, 0.68),
+			"target": Vector2(0.35, 0.86),
 			"align": "top"
 		},
 		{
-			"en": "Drag each seal to its matching numbered slot on the left.",
-			"ar": "\u0627\u0633\u062d\u0628 \u0643\u0644 \u062e\u062a\u0645 \u0625\u0644\u0649 \u062e\u0627\u0646\u062a\u0647 \u0627\u0644\u0645\u0631\u0642\u0645\u0629 \u0639\u0644\u0649 \u0627\u0644\u064a\u0633\u0627\u0631.",
-			"target": Vector2(0.22, 0.42),
-			"align": "right"
+			"en": "Drag each seal to its matching numbered slot.",
+			"ar": "\u0627\u0633\u062d\u0628 \u0643\u0644 \u062e\u062a\u0645 \u0625\u0644\u0649 \u062e\u0627\u0646\u062a\u0647 \u0627\u0644\u0645\u0631\u0642\u0645\u0629.",
+			"target": Vector2(0.51, 0.16),
+			"align": "bottom"
 		},
 		{
-			"en": "After each drop, a question appears — answer it to confirm your choice!",
-			"ar": "\u0628\u0639\u062f \u0643\u0644 \u0625\u0633\u0642\u0627\u0637 \u062a\u0638\u0647\u0631 \u0645\u0633\u0623\u0644\u0629 \u2014 \u0623\u062c\u0628 \u0639\u0644\u064a\u0647\u0627 \u0644\u062a\u0623\u0643\u064a\u062f \u0627\u062e\u062a\u064a\u0627\u0631\u0643!",
-			"target": Vector2(0.5, 0.5),
+			"en": "After dropping a seal, this question panel appears — answer it to confirm your choice!",
+			"ar": "\u0628\u0639\u062f \u0625\u0633\u0642\u0627\u0637 \u0627\u0644\u062e\u062a\u0645\u060c \u062a\u0638\u0647\u0631 \u0644\u0648\u062d\u0629 \u0627\u0644\u0633\u0624\u0627\u0644 \u2014 \u0623\u062c\u0628 \u0639\u0644\u064a\u0647\u0627 \u0644\u062a\u0623\u0643\u064a\u062f \u0627\u062e\u062a\u064a\u0627\u0631\u0643!",
+			"target": Vector2(0.5, 0.30),
 			"align": "bottom"
 		},
 	])
+
+	# Reparent the dialog into the tutorial's step_preview layer for step 3 only,
+	# so it renders above the dark tutorial overlay.
+	var _dialog_original_parent: Node = dialog.get_parent()
+	tut.step_changed.connect(func(idx: int) -> void:
+		if idx == 2:
+			_dialog_original_parent.remove_child(dialog)
+			tut.step_preview.add_child(dialog)
+			dialog.show()
+			dialog.set_interactive(false)  # block answers during tutorial
+		else:
+			if dialog.get_parent() == tut.step_preview:
+				tut.step_preview.remove_child(dialog)
+				_dialog_original_parent.add_child(dialog)
+			dialog.hide()
+	)
+	tut.tutorial_done.connect(func() -> void:
+		if dialog.get_parent() == tut.step_preview:
+			tut.step_preview.remove_child(dialog)
+			_dialog_original_parent.add_child(dialog)
+		dialog.set_interactive(true)  # restore for actual gameplay
+		dialog.hide()
+	)
 	add_child(tut)
 
 

@@ -5,7 +5,6 @@ extends Area2D
 @export var correct_position: Vector2
 @export var snap_distance: float = 24.0
 
-# ✅ Inspector "button"
 @export var CAPTURE_CORRECT_NOW: bool = false:
 	set(value):
 		# Only run when user toggles it in the editor
@@ -16,8 +15,15 @@ extends Area2D
 var dragging := false
 var offset := Vector2.ZERO
 var placed_correctly := false
+var _start_position := Vector2.ZERO
 
 @onready var polygon: Polygon2D = $Polygon2D
+
+
+func _ready() -> void:
+	if Engine.is_editor_hint():
+		return
+	_start_position = global_position
 
 
 func _process(_delta: float) -> void:
@@ -62,7 +68,10 @@ func _check_snap() -> void:
 			controllers[0].call_deferred("_check_puzzle_complete")
 
 	else:
-		polygon.modulate = Color(1, 0.95, 0.95)
+		polygon.modulate = Color(1, 1, 1)
+		var tween := create_tween()
+		tween.tween_property(self, "global_position", _start_position, 0.35) \
+			.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 func _capture_correct_from_current() -> void:

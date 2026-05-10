@@ -84,20 +84,21 @@ func _start_onboarding() -> void:
 		{
 			"en": "Drag each fruit into its matching basket. Barley \u2192 Barley, Wheat \u2192 Wheat, Dates \u2192 Dates.",
 			"ar": "\u0627\u0633\u062d\u0628 \u0643\u0644 \u062b\u0645\u0631\u0629 \u0625\u0644\u0649 \u0633\u0644\u062a\u0647\u0627 \u0627\u0644\u0635\u062d\u064a\u062d\u0629. \u0634\u0639\u064a\u0631 \u0645\u0639 \u0634\u0639\u064a\u0631\u060c \u0642\u0645\u062d \u0645\u0639 \u0642\u0645\u062d\u060c \u062a\u0645\u0631 \u0645\u0639 \u062a\u0645\u0631.",
-			"target": Vector2(0.45, 0.85),
+			"target": Vector2(0.51, 0.80),
 			"align": "top"
 		},
 		{
 			"en": "Watch out for rotten fruit \u2014 do NOT put it in any basket!",
 			"ar": "\u0627\u062d\u0630\u0631 \u0645\u0646 \u0627\u0644\u062b\u0645\u0627\u0631 \u0627\u0644\u0641\u0627\u0633\u062f\u0629 \u2014 \u0644\u0627 \u062a\u0636\u0639\u0647\u0627 \u0641\u064a \u0623\u064a \u0633\u0644\u0629!",
-			"target": Vector2(0.5, 0.5),
-			"align": "bottom"
+			"target": Vector2(0.5, 0.38),
+			"align": "bottom",
+			"overlay_image": "res://assets/sprites/harvest_rotten.png"
 		},
 		{
-			"en": "You have 3 lives. A wrong basket or a missed fruit costs one life!",
-			"ar": "\u0644\u062f\u064a\u0643 3 \u0623\u0631\u0648\u0627\u062d. \u0627\u0644\u0633\u0644\u0629 \u0627\u0644\u062e\u0637\u0623\u0629 \u0623\u0648 \u062a\u0641\u0648\u064a\u062a \u062b\u0645\u0631\u0629 \u064a\u0643\u0644\u0641\u0643 \u062d\u064a\u0627\u0629!",
-			"target": Vector2(0.88, 0.07),
-			"align": "bottom"
+			"en": "Your score and lives are shown here. A wrong basket or missed fruit costs one life!",
+			"ar": "\u0646\u062a\u064a\u062c\u062a\u0643 \u0648\u0623\u0631\u0648\u0627\u062d\u0643 \u062a\u0638\u0647\u0631 \u0647\u0646\u0627. \u0627\u0644\u0633\u0644\u0629 \u0627\u0644\u062e\u0637\u0623 \u0623\u0648 \u062a\u0641\u0648\u064a\u062a \u062b\u0645\u0631\u0629 \u064a\u0643\u0644\u0641\u0643 \u062d\u064a\u0627\u0629!",
+			"target": Vector2(0.90, 0.07),
+			"align": "left"
 		},
 	])
 	add_child(tut)
@@ -271,16 +272,13 @@ func _on_exit() -> void:
 	get_tree().change_scene_to_file("res://scenes/loading_screen.tscn")
 
 func _add_basket_fruit_images() -> void:
-	# Use Sprite2D in world space — scale is always exact, unlike TextureRect in a CanvasLayer.
-	# Basket Sprite2D centres from Seal4_Harvest.tscn.
 	const BASKET_POSITIONS := [
 		Vector2(262.0, 612.0),   # Barley
 		Vector2(592.0, 611.0),   # Wheat
 		Vector2(926.0, 612.0),   # Dates
 	]
 	var textures := [tex_barley, tex_wheat, tex_dates]
-	# Scale so the icon is ~30 px tall regardless of source texture size.
-	# Textures are roughly 350 px tall → 30 / 350 ≈ 0.086
+	# Scale so the icon is 30 px tall regardless of source texture size.
 	const TARGET_PX     := 44
 	const BASKET_HALF_W := 30.0
 	const GAP           := 8.0

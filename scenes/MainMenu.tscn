@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://fpqpqghbxbkh"]
+
+[ext_resource type="Texture2D" uid="uid://obvpjrynv04q" path="res://assets/startMenu/startMenuBG.png" id="1_0ykhv"]
+[ext_resource type="Script" uid="uid://dolygfmmtxn3d" path="res://scripts/MainMenu.gd" id="1_ow34m"]
+[ext_resource type="Texture2D" uid="uid://0l46rutnw1ac" path="res://assets/startMenu/akhtaamdilmunLogo.png" id="2_2wh52"]
+[ext_resource type="Texture2D" uid="uid://dysb16rkvmdbd" path="res://assets/startMenu/button.png" id="4_l72w3"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=535267357]
+script = ExtResource("1_ow34m")
+
+[node name="BG" type="TextureRect" parent="." unique_id=1081989417]
+offset_right = 1658.5713
+offset_bottom = 1118.5714
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_0ykhv")
+
+[node name="Control" type="Control" parent="." unique_id=1758940896]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Logo" type="TextureRect" parent="Control" unique_id=622123124]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -263.0
+offset_top = 36.0
+offset_right = 272.0
+offset_bottom = 416.0
+grow_horizontal = 2
+texture = ExtResource("2_2wh52")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="GridContainer" type="GridContainer" parent="Control" unique_id=1609968340]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = 160.0
+offset_right = 270.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 15
+columns = 2
+
+[node name="BtnNewGame" type="TextureButton" parent="Control/GridContainer" unique_id=1873112000]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_l72w3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/GridContainer/BtnNewGame" unique_id=466664128]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnLoadGame" type="TextureButton" parent="Control/GridContainer" unique_id=560659193]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_l72w3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/GridContainer/BtnLoadGame" unique_id=320908198]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnSettings" type="TextureButton" parent="Control/GridContainer" unique_id=355680207]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_l72w3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/GridContainer/BtnSettings" unique_id=1722135249]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BtnQuit" type="TextureButton" parent="Control/GridContainer" unique_id=1181040622]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+texture_normal = ExtResource("4_l72w3")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Control/GridContainer/BtnQuit" unique_id=1916824552]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
+vertical_alignment = 1

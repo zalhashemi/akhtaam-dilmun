@@ -1,98 +1,100 @@
-[gd_scene load_steps=6 format=3 uid="uid://f8sa0udbpchf"]
+[gd_scene format=3 uid="uid://f8sa0udbpchf"]
 
 [ext_resource type="Script" uid="uid://drjdshru17ht1" path="res://scripts/quest4/Quest4_Harvest.gd" id="1_a6jxy"]
 [ext_resource type="Texture2D" uid="uid://b3jrv7sofoni" path="res://assets/sprites/harvest_bg.png" id="2_dmb46"]
 [ext_resource type="Script" uid="uid://d0toqhkaq5s4w" path="res://scripts/quest4/HarvestBasket.gd" id="3_tjseo"]
 [ext_resource type="Texture2D" uid="uid://dw030lvp4y4ak" path="res://assets/sprites/harvest_basket.png" id="4_vsek1"]
+[ext_resource type="PackedScene" uid="uid://cojsx44vxatuo" path="res://scenes/options_overlay.tscn" id="5_dmb46"]
+[ext_resource type="PackedScene" uid="uid://b5fa6g6dcpc5y" path="res://scenes/quest_result_panel.tscn" id="6_tjseo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u4wam"]
 size = Vector2(219, 133)
 
-[node name="Seal4Harvest" type="Node2D"]
+[node name="Seal4Harvest" type="Node2D" unique_id=1427937807]
 script = ExtResource("1_a6jxy")
 
-[node name="Background" type="Sprite2D" parent="."]
+[node name="Background" type="Sprite2D" parent="." unique_id=954116504]
 position = Vector2(580.75, 384.49997)
 scale = Vector2(0.7594402, 0.7529296)
 texture = ExtResource("2_dmb46")
 
-[node name="Items" type="Node2D" parent="."]
+[node name="Items" type="Node2D" parent="." unique_id=1436717291]
 
-[node name="Baskets" type="Node2D" parent="."]
+[node name="Baskets" type="Node2D" parent="." unique_id=1495903924]
 
-[node name="BasketBarley" type="Area2D" parent="Baskets"]
+[node name="BasketBarley" type="Area2D" parent="Baskets" unique_id=1510310649]
 collision_layer = 2
 script = ExtResource("3_tjseo")
 accepts_type = null
 
-[node name="Sprite" type="Sprite2D" parent="Baskets/BasketBarley"]
+[node name="Sprite" type="Sprite2D" parent="Baskets/BasketBarley" unique_id=487780246]
 position = Vector2(262.00003, 612)
 scale = Vector2(0.27539063, 0.28173828)
 texture = ExtResource("4_vsek1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Baskets/BasketBarley"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Baskets/BasketBarley" unique_id=1680703679]
 position = Vector2(261, 616)
 shape = SubResource("RectangleShape2D_u4wam")
 
-[node name="BasketWheat" type="Area2D" parent="Baskets"]
+[node name="BasketWheat" type="Area2D" parent="Baskets" unique_id=240546488]
 collision_layer = 2
 script = ExtResource("3_tjseo")
 accepts_type = "wheat"
 
-[node name="Sprite" type="Sprite2D" parent="Baskets/BasketWheat"]
+[node name="Sprite" type="Sprite2D" parent="Baskets/BasketWheat" unique_id=1435593124]
 position = Vector2(592, 611)
 scale = Vector2(0.27539063, 0.28173828)
 texture = ExtResource("4_vsek1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Baskets/BasketWheat"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Baskets/BasketWheat" unique_id=1739457588]
 position = Vector2(594, 616)
 shape = SubResource("RectangleShape2D_u4wam")
 
-[node name="BasketDates" type="Area2D" parent="Baskets"]
+[node name="BasketDates" type="Area2D" parent="Baskets" unique_id=580777482]
 collision_layer = 2
 script = ExtResource("3_tjseo")
 accepts_type = "dates"
 
-[node name="Sprite" type="Sprite2D" parent="Baskets/BasketDates"]
+[node name="Sprite" type="Sprite2D" parent="Baskets/BasketDates" unique_id=1509153752]
 position = Vector2(926.00006, 611.99994)
 scale = Vector2(0.27539063, 0.28173828)
 texture = ExtResource("4_vsek1")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Baskets/BasketDates"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Baskets/BasketDates" unique_id=543602414]
 position = Vector2(925, 617)
 shape = SubResource("RectangleShape2D_u4wam")
 
-[node name="SpawnArea" type="Node2D" parent="."]
+[node name="SpawnArea" type="Node2D" parent="." unique_id=141003965]
 
-[node name="SpawnLeft" type="Marker2D" parent="SpawnArea"]
+[node name="SpawnLeft" type="Marker2D" parent="SpawnArea" unique_id=695942120]
 position = Vector2(319, 216)
 
-[node name="SpawnRight" type="Marker2D" parent="SpawnArea"]
+[node name="SpawnRight" type="Marker2D" parent="SpawnArea" unique_id=68964560]
 position = Vector2(784, 241)
 
-[node name="SpawnTimer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="." unique_id=390186144]
 wait_time = 1.2999999999999998
 autostart = true
 
-[node name="UI" type="CanvasLayer" parent="."]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1986125573]
 
-[node name="ScoreLabel" type="Label" parent="UI"]
-offset_left = 95.0
-offset_top = 44.0
-offset_right = 198.0
-offset_bottom = 93.0
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=898951758]
+offset_left = 992.0
+offset_top = 39.0
+offset_right = 1095.0
+offset_bottom = 88.0
 text = "Harvest: 0/15
 "
 
-[node name="LivesLabel" type="Label" parent="UI"]
-offset_left = 96.0
-offset_top = 69.0
-offset_right = 199.0
-offset_bottom = 118.0
+[node name="LivesLabel" type="Label" parent="UI" unique_id=1033961830]
+offset_left = 993.0
+offset_top = 64.0
+offset_right = 1096.0
+offset_bottom = 113.0
 text = "Lives: 3
 "
 
-[node name="StatusLabel" type="Label" parent="UI"]
+[node name="StatusLabel" type="Label" parent="UI" unique_id=2106038881]
 offset_left = 529.0
 offset_top = 358.0
 offset_right = 632.0
@@ -100,57 +102,35 @@ offset_bottom = 407.0
 text = "
 "
 
-[node name="Barley" type="Label" parent="UI"]
-offset_left = 240.0
-offset_top = 631.0
-offset_right = 290.0
-offset_bottom = 654.0
+[node name="Barley" type="Label" parent="UI" unique_id=691496372]
+offset_left = 261.0
+offset_top = 635.0
+offset_right = 311.0
+offset_bottom = 658.0
 text = "Barley"
 
-[node name="Wheat" type="Label" parent="UI"]
-offset_left = 571.0
-offset_top = 634.0
-offset_right = 621.0
-offset_bottom = 657.0
+[node name="Wheat" type="Label" parent="UI" unique_id=1807936015]
+offset_left = 596.0
+offset_top = 636.0
+offset_right = 647.0
+offset_bottom = 659.0
 text = "Wheat"
 
-[node name="Dates" type="Label" parent="UI"]
-offset_left = 899.0
-offset_top = 638.0
-offset_right = 949.0
-offset_bottom = 661.0
+[node name="Dates" type="Label" parent="UI" unique_id=412258668]
+offset_left = 931.0
+offset_top = 636.0
+offset_right = 981.0
+offset_bottom = 659.0
 text = "Dates"
 
-[node name="ResultPanel" type="Panel" parent="UI"]
-visible = false
-offset_left = 219.0
-offset_top = 100.0
-offset_right = 953.0
-offset_bottom = 602.0
-
-[node name="MessageLabel" type="Label" parent="UI/ResultPanel"]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.88500005
-offset_left = 63.0
-offset_top = 47.0
-offset_right = -83.0
-offset_bottom = -311.27002
-theme_override_font_sizes/font_size = 48
-
-[node name="RetryButton" type="Button" parent="UI/ResultPanel"]
-layout_mode = 0
-offset_left = 332.0
-offset_top = 390.0
-offset_right = 382.0
-offset_bottom = 421.0
-theme_override_font_sizes/font_size = 32
-text = "Retry"
-
-[node name="FeedbackLabel" type="Label" parent="UI"]
+[node name="FeedbackLabel" type="Label" parent="UI" unique_id=261353746]
 offset_left = 395.0
 offset_top = 359.0
 offset_right = 720.0
 offset_bottom = 420.0
 theme_override_font_sizes/font_size = 32
+
+[node name="OptionsOverlay" parent="." unique_id=1156552052 instance=ExtResource("5_dmb46")]
+in_quest = true
+
+[node name="QuestResultPanel" parent="." unique_id=570383011 instance=ExtResource("6_tjseo")]

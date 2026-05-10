@@ -82,6 +82,21 @@ func _ready() -> void:
 	var _input_overlay: Node = load("res://scripts/InputHintOverlay.gd").new()
 	_input_overlay.setup("mouse")
 	add_child(_input_overlay)
+	# Show first question as a preview so the tutorial can point at UI elements
+	if questions.size() > 0:
+		var pq: Dictionary = questions[0]
+		dialogue_label.text = _get_npc_display_name(str(pq["npc"])) + ": " + str(pq["prompt"])
+		choice_button_1.text = str(pq["choices"][0])
+		choice_button_2.text = str(pq["choices"][1])
+		if Global.current_locale == "ar":
+			var ts := TextServerManager.get_primary_interface()
+			progress_label.text = tr("QUESTION_PROGRESS") % [
+				ts.format_number("1"),
+				ts.format_number("%d" % questions.size())
+			]
+		else:
+			progress_label.text = tr("QUESTION_PROGRESS") % [1, questions.size()]
+		choices_hbox.visible = true
 	_start_onboarding()
 
 
@@ -91,20 +106,20 @@ func _start_onboarding() -> void:
 		{
 			"en": "A character will appear and ask you a question — read it carefully!",
 			"ar": "\u0633\u062a\u0638\u0647\u0631 \u0634\u062e\u0635\u064a\u0629 \u0648\u062a\u0637\u0631\u062d \u0639\u0644\u064a\u0643 \u0633\u0624\u0627\u0644\u0627\u064b \u2014 \u0627\u0642\u0631\u0623\u0647 \u0628\u0639\u0646\u0627\u064a\u0629!",
-			"target": Vector2(0.5, 0.32),
-			"align": "bottom"
+			"target": Vector2(0.25, 0.51),
+			"align": "right"
 		},
 		{
 			"en": "Click one of these two buttons to give your answer.",
 			"ar": "\u0627\u0636\u063a\u0637 \u0639\u0644\u0649 \u0623\u062d\u062f \u0627\u0644\u0632\u0631\u064a\u0646 \u0644\u062a\u0642\u062f\u064a\u0645 \u0625\u062c\u0627\u0628\u062a\u0643.",
-			"target": Vector2(0.5, 0.72),
+			"target": Vector2(0.50, 0.88),
 			"align": "top"
 		},
 		{
 			"en": "Answer at least 6 out of 9 questions correctly to win the seal!",
 			"ar": "\u0623\u062c\u0628 \u0639\u0644\u0649 \u0666 \u0645\u0646 \u0623\u0635\u0644 \u0669 \u0623\u0633\u0626\u0644\u0629 \u0635\u062d\u064a\u062d\u0629 \u0644\u0644\u0641\u0648\u0632 \u0628\u0627\u0644\u062e\u062a\u0645!",
-			"target": Vector2(0.5, 0.5),
-			"align": "bottom"
+			"target": Vector2(0.50, 0.79),
+			"align": "top"
 		},
 	])
 	tut.tutorial_done.connect(_show_current_question)

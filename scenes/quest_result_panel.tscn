@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://b5fa6g6dcpc5y"]
+
+[ext_resource type="Script" uid="uid://yrdsl5h70o4q" path="res://scripts/quest_result_panel.gd" id="1_qkv7d"]
+[ext_resource type="Texture2D" uid="uid://dysb16rkvmdbd" path="res://assets/startMenu/button.png" id="2_fdwuk"]
+
+[node name="QuestResultPanel" type="CanvasLayer" unique_id=570383011]
+process_mode = 3
+layer = 8
+script = ExtResource("1_qkv7d")
+
+[node name="Panel" type="Control" parent="." unique_id=179157172]
+visible = false
+custom_minimum_size = Vector2(499, 390)
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -65.0
+offset_right = 20.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelBackground" type="ColorRect" parent="Panel" unique_id=473814871]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+
+[node name="VBox" type="VBoxContainer" parent="Panel" unique_id=1252676857]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -133.5
+offset_right = 100.0
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 16
+
+[node name="ResultLabel" type="Label" parent="Panel/VBox" unique_id=1655130223]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9490196, 0.7254902, 0.5137255, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="TextureButton" parent="Panel/VBox" unique_id=669259818]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_fdwuk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/VBox/ContinueButton" unique_id=1320941235]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RetryButton" type="TextureButton" parent="Panel/VBox" unique_id=266369235]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_fdwuk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/VBox/RetryButton" unique_id=1000560747]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="Panel/VBox" unique_id=1526574695]
+custom_minimum_size = Vector2(200, 60)
+layout_mode = 2
+texture_normal = ExtResource("2_fdwuk")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Panel/VBox/ExitButton" unique_id=917378541]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.23137255, 0.12156863, 0.05490196, 1)
+theme_override_font_sizes/font_size = 17
+horizontal_alignment = 1
+vertical_alignment = 1
